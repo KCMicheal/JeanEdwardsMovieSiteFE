@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 import './App.css'
 
@@ -29,7 +29,7 @@ function App() {
    }
 
    useEffect(() => {
-     const intervalId = setInterval(handleLatestSearchResults, 5000); // Fetch every 5 seconds
+     const intervalId = setInterval(handleLatestSearchResults, 5000);
      return () => clearInterval(intervalId);
    }, []);
 
@@ -66,7 +66,7 @@ function App() {
               ))}
           </div>
           <div className="m-4 p-4 w-1/2 flex rounded-lg border border-gray-300 shadow-xl">
-            {"Loading..." &&
+            {jsonResult &&
               jsonResult.map((item: any, index: number) => (
                 <div
                   key={index}
